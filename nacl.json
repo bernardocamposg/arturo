@@ -1,0 +1,167 @@
+[{
+    "group": "administrador",
+    "permissions": [{
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+    }]
+},
+{
+    "group": "soldier",
+    "permissions": [{
+        "resource": "/login",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/edit",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/logout",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/soldiers/:username",
+        "methods": ["GET"],
+        "action": "allow"
+    },
+    {
+        "resource": "/signup",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    }]
+},
+{
+    "group": "cgo",
+    "permissions": [{
+        "resource": "/login",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/edit",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/seeimg",
+        "methods": ["GET"],
+        "action": "allow"
+    },
+    {
+        "resource": "/seeimg",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/soldiers/:username",
+        "methods": ["GET"],
+        "action": "allow"
+    },
+    {
+        "resource": "/logout",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/createpdf",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/createpublication",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/file",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/files/:filename",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/image/:filename",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/allpublications",
+        "methods": "*",
+        "action": "allow"
+    }]
+},
+{
+    "group": "locust",
+    "permissions": [{
+        "resource": "/login",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/createpdf",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/soldiers/:username",
+        "methods": ["GET"],
+        "action": "allow"
+    },
+    {
+        "resource": "/edit",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/seeimg",
+        "methods": ["GET"],
+        "action": "allow"
+    },
+    {
+        "resource": "/seeimg",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/logout",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/createpublication",
+        "methods": "*",
+        "action": "deny"
+    },
+    {
+        "resource": "/createpdf",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
+        "resource": "/file",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/files/:filename",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/image/:filename",
+        "methods": "*",
+        "action": "allow"
+    },
+    {
+        "resource": "/allpublications",
+        "methods": "*",
+        "action": "allow"
+    }]
+}]

@@ -1,0 +1,24 @@
+<% include _header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+        <h1 class="text-center display-4 my-4">Imagenes</h1>
+        
+        <hr>
+        <% if(files){ %>
+            <% files.forEach(function(file) { %>
+            <div class="card card-body mb-3" >
+                <% if(file.isImage) { %>
+                <img src="image/<%= file.filename %>" width="100%">
+                <% } else { %>
+                    <%= file.filename %>
+                    <% } %>
+            </div>
+            <% }) %>
+                <% } else { %>
+                <p>No hay imagenes que mostrar</p>
+                <% } %>
+        </div>
+    </div>
+</div>
+<% include _footer %>

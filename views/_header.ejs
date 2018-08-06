@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gears Of War</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Eater');
+    
+    body {
+        background-color: rgba(0,0,0,.9);
+        color: white;
+    }
+
+    nav.navbar ul.nav li {
+    font-family: 'Eater', cursive;
+    color: red;
+    }
+
+    .navbar-light .navbar-brand,
+    .navbar-light .navbar-toggler {
+        color: rgba(188, 25, 26, .7);
+        font-family: 'Eater', cursive;
+    }
+
+    .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover,
+.navbar-light .navbar-toggler:focus,
+.navbar-light .navbar-toggler:hover {
+  color: rgba(188, 25, 26, 1);
+  font-family: 'Eater', cursive;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(188, 25, 26, 0.7);
+    font-family: 'Eater', cursive;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(188, 25, 26, 1);
+    font-family: 'Eater', cursive;
+}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(0,0,0);">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" src="http://a1077.phobos.apple.com/us/r1000/000/Purple4/v4/1a/ea/65/1aea6534-9dac-8ea9-2750-a23ab0b62391/mzl.qyjovpxr.jpg" href="/">
+                <img src="https://vignette.wikia.nocookie.net/gearsofwar/images/4/4f/GEARS_OF_WAR_LOGO_by_SOCOM27.png/revision/latest?cb=20110702020209&path-prefix=es" width="50" height="50" alt="">
+            Gears Of War</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto ">
+        <% if (currentSoldier){%>
+        <li class="nav-item ">
+            <a class="nav-link">Hola,<%= currentSoldier.name() %></a>
+        </li>
+        <li class="nav-item ">
+        <a class="nav-link">Equipo:<%= currentSoldier.rol() %></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="/edit">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/createpublication">Publicar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/allpublications">Ver Publicaciones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/createimg">Subir imagenes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/seeimg">Ver imagenes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Cerrar Sesion</a>
+        </li>
+        <%}else{%>
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Entrar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/signup">Registrar Usuario</a>
+        </li>
+        
+        <% } %>
+        </ul>
+        <span class="navbar-text">
+        Soldiers
+        </span>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <% errors.forEach(function(error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% }) %>
+        <% infos.forEach(function(info) { %>
+            <div class="alert alert-info" role="alert">
+                <%= info %>
+            </div>
+        <% }) %>
+
+

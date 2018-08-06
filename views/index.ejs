@@ -1,0 +1,43 @@
+<% include _header %>
+<div class="">
+    <h1 class="text-center">Blog de Gears Of War</h1>
+    <br>
+    <br>
+    <h2 class="text-center">¿Quien eres tu?</h2>
+    <div class="row"> 
+        <div class="col-md-6 text-center" style="color:blue">
+            <h3>CGO</h3>
+            <img src="https://vignette.wikia.nocookie.net/gearsofwar/images/1/19/319px-Gears_of_War_3_Personajes_COG_Cole_Train.png/revision/latest?cb=20110624215629&path-prefix=es">
+        </div>
+        <div class="col-md-6 text-center" style="color:red">
+            <h3>LOCUST</h3>
+            <img src="https://vignette.wikia.nocookie.net/gearsofwar/images/3/37/Spotter_pose.png/revision/latest?cb=20140319225327&path-prefix=es" width="319" height="599">
+        </div>
+    </div>
+    <h3>Jugadores Registrados:</h3>
+    <div class="row"> 
+        <div class="col-md-6 text-center" style="color:blue">
+            <h3>Apoyando a CGO:</h3>
+            <% soldiers.forEach((soldier)=>{ %>
+                <% if (soldier.rol() == "cgo"){%>
+                    <a href="/soldiers/<%= soldier.username %>">
+                        <label  class="col-form-label font-weight-light"><%= soldier.name() %></label>
+                        <br>
+                    </a>
+                <% } %>
+            <% }) %> 
+        </div>  
+        <div class="col-md-6 text-center" style="color:red">
+            <h3>Apoyando a LOCUST:</h3>
+            <% soldiers.forEach((soldier)=>{ %>
+                <% if (soldier.rol() == "locust"){%>
+                        <a href="/soldiers/<%= soldier.username %>">
+                            <label  class="col-form-label font-weight-light"><%= soldier.name() %></label>
+                            <br>
+                        </a>
+                <% } %>
+            <% }) %> 
+        </div> 
+    </div>
+    <h4 class="text-center">¡REGISTRATE!</h4>
+<% include _footer %>

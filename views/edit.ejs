@@ -1,0 +1,45 @@
+<% include _header %>
+
+<h1>Actualiza tu perfil </h1>
+<h3>Tus información la podran ver otras personas </h3>
+<br>
+<form action="/edit" method="post">
+    <div class="form-group row">
+        <label class="col-md-2">Apodo:</label>
+        <div class="col-md-4">
+            <input name="displayName" type="text" class="form-control" placeholder="Nombre para mostrar" value="<%= currentSoldier.displayName ||"" %>"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Información:</label>
+        <div class="col-md-10">
+            <textarea name="bio" class="form-control" placeholder="Platicamos algo acerca de ti">
+                <%= currentSoldier.bio || "" %>
+            </textarea>
+        </div>
+    </div>
+    <div class"form-group row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="submit" value="Actualizar" class="btn btn-primary btn-block"/>
+        </div>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<% include _footer %>

@@ -1,0 +1,39 @@
+<% include _header %>
+<h1> Mostrar Publicaciones</h1>
+
+<% allpublications.forEach((publication)=>{ %>
+<form action="/createpdf" method="post">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a>
+            <label  class="col-form-label font-weight-bold">Publicación:</label>
+            </a>
+        </div>
+        <div class="row">
+            <label  class="col-md-1 col-form-label font-italic">Publicarón:</label>
+            <label  class="col-form-label font-weight-light"><%= publication.description %></label>
+            <input type="hidden" name="titulo1" value="<%= publication.description %>">
+        </div>
+        <div class="row">
+            <label  class="col-md-1 col-form-label font-italic">Categoria:</label>
+            <label  name="titulo2" value="<%= publication.category %>" class="col-form-label font-weight-light"><%= publication.category %></label>
+            <input type="hidden" name="titulo2" value="<%= publication.category %>">
+        </div>
+        <div class="row">
+            <label  class="col-md-1 col-form-label font-italic">Fecha:</label>
+            <label  name="titulo3" value="<%= publication.date %>" class="col-form-label font-weight-light"><%= publication.date %></label>
+            <input type="hidden" name="titulo3" value="<%= publication.date %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+        <input type="submit" value="PDF" class="btn btn-danger"/>
+        </div>
+    </div>
+</form>
+<a >----------------------------------------------</a>
+
+<% }) %>
+
+    <% include _footer %>

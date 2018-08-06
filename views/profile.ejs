@@ -1,0 +1,19 @@
+<% include _header %>
+<br>
+<br>
+<%if((currentSoldier) && (currentSoldier.id === soldier.id)){ %>
+    <a href="/edit" class="pull-right">Edita tu perfil</a>
+<% } %>
+
+<h1><%=soldier.name() %></h1>
+<p class="font-weight-bold">Se registró el:</p><p><%= soldier.createdAt %></p>
+<p class="font-weight-bold">Su apodo es:</p><p><%= soldier.displayName %></p>
+<p class="font-weight-bold">Información del usuario:</p><p><%= soldier.bio %></p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<% include _footer %>
