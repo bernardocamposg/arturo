@@ -216,7 +216,7 @@ router.post("/edit", ensureAuthenticated, (req, res, next) => {
 
 
 // Mongo URI
-var mongoURI = 'mongodb://localhost:27017/gears';
+var mongoURI = 'mongodb://bernardo:123bernardo@ds113732.mlab.com:13732/gears';
 
 // Create mongo connection
 var conn = mongoose.createConnection(mongoURI);
@@ -232,7 +232,7 @@ conn.once('open', () => {
 
 // Create storage engine
 var storage = new GridFsStorage({
-    url: "mongodb://bernardo:123bernardo@ds113732.mlab.com:13732/gears",
+    url: 'mongodb://bernardo:123bernardo@ds113732.mlab.com:13732/gears',
     file: (req, file) => {
       return new Promise((resolve, reject) => {
         crypto.randomBytes(16, (err, buf) => {
