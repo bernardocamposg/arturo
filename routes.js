@@ -6,13 +6,14 @@ var acl = require('express-acl');
 var router = express.Router();
 var pdf = require('pdfkit');
 var fs = require('fs');
-
+var blobStream  = require('blob-stream');
 var path = require("path");
 var crypto = require('crypto');
 var mongoose = require('mongoose');
 var multer = require('multer');
 var GridFsStorage = require('multer-gridfs-storage');
 var Grid = require('gridfs-stream');
+var moment = require('moment');
 
 
 acl.config({
@@ -69,6 +70,19 @@ router.get("/signup", (req,res) => {
     res.render("signup");
 });
 
+router.get("/signup", (req,res) => {
+    res.render("signup");
+});
+router.post("/searchdate", (req,res,next) => {
+  var date = req.body.date;
+  var nacimiento = moment(date);
+  var fechahoy = moment();
+  var anios = fechahoy.diff(nacimiento,"years");
+  console.log(anios);
+  res.render("seedate",{date:anios})
+  //res.render("fecha",anios);
+
+});
 router.post("/signup", (req,res,next) => {
     var username = req.body.username;
     var password = req.body.password;
@@ -96,10 +110,10 @@ router.post("/createpdf", (req,res,next) => {
     var titulo1 = req.body.titulo1;
     var titulo2 = req.body.titulo2;
     var titulo3 = req.body.titulo3;
-    var myDoc = new pdf;
-    if((titulo1+'.pdf') != myDoc.pipe(fs.createWriteStream(titulo1+'.pdf'))){
+    var myDoc = new pdf();
+    var stream = myDoc.pipe(fs.createWriteStream('img/'+titulo1+'pdf'));
+    if((titulo1+'.pdf') != myDoc.pipe(fs.createWriteStream('img/'+titulo1+'.pdf'))){
     
-    myDoc.pipe(fs.createWriteStream(titulo1+'.pdf'));
     myDoc.fontSize(10).text('Publicacion: '+titulo1, 100, 120);
     myDoc.font('Times-Roman').fontSize(10).text('Categoria:'+titulo2,100 , 140);
     myDoc.fontSize(10).text('Fecha: '+titulo3, 100, 160);
@@ -108,9 +122,8 @@ router.post("/createpdf", (req,res,next) => {
     }else{
     
         req.flash("error", "Esta publicación ya se ha guardadp");
-        return res.redirect("/allpublications");
+        return res.redirect('/img/'+titulo1+'.pdf');
     }
-    
 });
 
 router.post("/createpublication", (req,res,next) => {

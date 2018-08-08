@@ -2,8 +2,10 @@
 <h1> Mostrar Publicaciones</h1>
 
 <% allpublications.forEach((publication)=>{ %>
-<form action="/createpdf" method="post">
+
+<!--<form action="/createpdf" method="post">-->
     <div class="panel panel-default">
+    <div id="pdfevent">
         <div class="panel-heading">
             <a>
             <label  class="col-form-label font-weight-bold">Publicación:</label>
@@ -25,13 +27,15 @@
             <input type="hidden" name="titulo3" value="<%= publication.date %>">
         </div>
     </div>
+</div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-2">
-        <input type="submit" value="PDF" class="btn btn-danger"/>
+        <input type="button" onclick="printDiv('pdfevent')" value="PDF" class="btn btn-danger"/>
         </div>
     </div>
-</form>
+<!--</form>-->
+
 <a >----------------------------------------------</a>
 
 <% }) %>

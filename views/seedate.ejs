@@ -4,14 +4,13 @@
     <br>
     <h2 class="text-center">¿Quien que calculemos tu edad hasta la  fecha actual?</h2>
     <p class="text-center">Ingresa los siguientes datos:</p>
-    <<form action="/searchdate" method="post">
+    <form action="/searchdate" method="post">
         <div class="form-group row">
             <label class="col-md-6 text-right">Ingresa tu año de nacimiento:</label> 
             <div class="col-md-3">
                 <input id="date" name="date" type="date" class="form-control" required/>
             </div>
         </div>
-        <p id="res"></p>
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-2">
@@ -19,6 +18,8 @@
         </div>
     </div>
     </form>
+    
+    <p class="text-center">Usted tiene: <%= date %> años</p>
     <br>
     <h2 class="text-center">¿Quien eres tu?</h2>
     <div class="row"> 
@@ -31,31 +32,7 @@
             <img src="https://vignette.wikia.nocookie.net/gearsofwar/images/3/37/Spotter_pose.png/revision/latest?cb=20140319225327&path-prefix=es" width="319" height="599">
         </div>
     </div>
-    <h3>Jugadores Registrados:</h3>
-    <div class="row"> 
-        <div class="col-md-6 text-center" style="color:blue">
-            <h3>Apoyando a CGO:</h3>
-            <% soldiers.forEach((soldier)=>{ %>
-                <% if (soldier.rol() == "cgo"){%>
-                    <a href="/soldiers/<%= soldier.username %>">
-                        <label  class="col-form-label font-weight-light"><%= soldier.name() %></label>
-                        <br>
-                    </a>
-                <% } %>
-            <% }) %> 
-        </div>  
-        <div class="col-md-6 text-center" style="color:red">
-            <h3>Apoyando a LOCUST:</h3>
-            <% soldiers.forEach((soldier)=>{ %>
-                <% if (soldier.rol() == "locust"){%>
-                        <a href="/soldiers/<%= soldier.username %>">
-                            <label  class="col-form-label font-weight-light"><%= soldier.name() %></label>
-                            <br>
-                        </a>
-                <% } %>
-            <% }) %> 
-        </div> 
-    </div>
+    
     <h4 class="text-center">¡REGISTRATE!</h4>
     <!--<script src="moment.js"></script>-->
    <!-- <script src="https://momentjs.com/downloads/moment.js"></script>-->
