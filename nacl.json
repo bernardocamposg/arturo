@@ -57,6 +57,11 @@
         "action": "allow"
     },
     {
+        "resource": "/signup",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+    },
+    {
         "resource": "/seeimg",
         "methods": ["GET"],
         "action": "allow"
@@ -119,6 +124,7 @@
         "methods": ["GET", "POST"],
         "action": "allow"
     },
+    
     {
         "resource": "/searchdate",
         "methods": "*",
