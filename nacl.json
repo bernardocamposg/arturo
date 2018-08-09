@@ -146,7 +146,7 @@
         "action": "allow"
     },
     {
-        "resource": "/seeimg",
+        "resource": "/signup",
         "methods": "*",
         "action": "allow"
     },
